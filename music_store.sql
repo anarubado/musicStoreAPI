@@ -1,0 +1,16 @@
+USE music_store;
+
+CREATE TABLE products (
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255),
+    description TEXT,
+    price MEDIUMINT,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
+    deletedAt DATETIME
+);
+
+CREATE TABLE categories (
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255),
+);
