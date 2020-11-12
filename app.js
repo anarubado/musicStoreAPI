@@ -1,10 +1,13 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 
-const apiInfoRouter = require('./routes/api/apiInfo');
+const apiRouter = require('./routes/api');
+
+app.use(cors);
 
 app.listen(3030, function(){
     console.log("Running on 3030");
 });
 
-app.use('/api/info', apiInfoRouter);
+app.use('/api', apiRouter);
