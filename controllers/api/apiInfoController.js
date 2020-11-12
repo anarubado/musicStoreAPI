@@ -1,6 +1,6 @@
-let db = require('../../database/models');
+let db = require('../database/models');
 
-const apiInfoController = {
+const apiController = {
     list: function(req, res) {
         db.Product.findAll()
             .then(function(products) {
@@ -10,7 +10,6 @@ const apiInfoController = {
                         quantity: products.length,
                         url: req.originalUrl
                     },
-        
                     data: {   
                         products: products.map(product => {
                             return ({
@@ -27,10 +26,10 @@ const apiInfoController = {
                 res.json(api);
 
             })
-        
-        
-
-    } 
+            .catch(function(error){
+                console.log(error);
+            })
+    }
 }
 
-module.exports = apiInfoController;
+module.exports = apiController;
